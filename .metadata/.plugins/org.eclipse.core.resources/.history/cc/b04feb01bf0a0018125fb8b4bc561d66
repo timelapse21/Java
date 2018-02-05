@@ -1,0 +1,53 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout.Group;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class Components extends JFrame implements ActionListener{
+	JLabel label;
+	JButton button1, button2;
+	JTextField text;
+	JRadioButton radio1, radio2;
+	public Components() {
+		super("Components");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(300, 300, 200, 350);
+		JPanel content = new JPanel();
+		label = new JLabel("This is a label.", JLabel.CENTER);
+		button1 = new JButton("Button 1");
+		button2 = new JButton("Button 2");
+		text = new JTextField(10);
+		radio1 = new JRadioButton("Radio Button 1");
+		radio2 = new JRadioButton("Radio Button 2");
+		button1.addActionListener(this);
+		button2.addActionListener(this);
+		text.addActionListener(this);
+		radio1.addActionListener(this);
+		radio2.addActionListener(this);
+		content.add(label);
+		content.add(button1);
+		content.add(button2);
+		content.add(text);
+		this.setContentPane(content);
+		this.setVisible(true);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button1) {
+			label.setText("Button 1 was pressed");
+		}
+		else if (e.getSource() == button2) {
+			label.setText("Button 2 was pressed");
+		}
+		else if (e.getSource() == text) {
+			label.setText("You typed: " + text.getText());
+		}
+		
+	}
+}
