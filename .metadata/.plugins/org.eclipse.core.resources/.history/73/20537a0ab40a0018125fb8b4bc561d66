@@ -1,0 +1,14 @@
+import java.awt.Graphics;
+
+import javax.swing.JApplet;
+
+public class Main extends JApplet {
+	int x, y;
+	public void init() {
+		x = 10;
+		y = 0;
+	}
+	public void paint(Graphics g) {
+		g.fillOval(x, y, 10, 10);
+	}
+}

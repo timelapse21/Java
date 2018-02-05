@@ -1,0 +1,14 @@
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class Main extends Applet {
+	public void paint(Graphics g) {
+		for (int angle = 0; angle < 360; angle += 20)
+        {
+            int x = 250 + (int) (Math.sin(angle * Math.PI / 180) * radius);
+            int y = 250 + (int) (Math.cos(angle * Math.PI / 180) * radius);
+            g.fillRect(x, y, 5, 5);
+        }
+
+	}
+}

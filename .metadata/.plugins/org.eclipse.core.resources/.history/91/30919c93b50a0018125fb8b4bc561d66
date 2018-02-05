@@ -1,0 +1,38 @@
+import java.awt.Graphics;
+
+import javax.swing.JApplet;
+
+public class Main extends JApplet implements Runnable {
+	int x, y, dx, dy;
+	public void init() {
+		x = 10;
+		y = 0;
+	}
+	public void start() {
+		Thread thread = new Thread(this);
+		thread.start();
+	}
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.fillOval(x, y, 10, 10);
+	}
+	@Override
+	public void run() {
+		while (true) {
+			if (x + dx < 0 || x + dx > WIDTH) {
+				dx = -dx;
+			}
+			if (y + dy < 0 || y + dy > HEIGHT) {
+				dy = -dy;
+			}
+			x += dx;
+			y += dy;
+			repaint();
+			try {
+				Thread.sleep(5);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
