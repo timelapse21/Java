@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -32,6 +33,7 @@ public class Components extends JFrame implements ActionListener, ItemListener, 
 		this.setBounds(300, 300, 200, 350);
 		
 		JPanel content = new JPanel();
+		JPanel outer = new JPanel(new BorderLayout());
 		
 		label = new JLabel("This is a label.", JLabel.CENTER);
 		button1 = new JButton("Button 1");
@@ -63,7 +65,7 @@ public class Components extends JFrame implements ActionListener, ItemListener, 
 		list.addListSelectionListener(this);
 		combo.addActionListener(this);
 		
-		content.add(label);
+		
 		content.add(button1);
 		content.add(button2);
 		content.add(text);
@@ -73,8 +75,10 @@ public class Components extends JFrame implements ActionListener, ItemListener, 
 		content.add(chkbox2);
 		content.add(list);
 		content.add(combo);
+		outer.add(label, BorderLayout.NORTH);
+		outer.add(content, BorderLayout.CENTER);
 		
-		this.setContentPane(content);
+		this.setContentPane(outer);
 		this.setVisible(true);
 	}
 	

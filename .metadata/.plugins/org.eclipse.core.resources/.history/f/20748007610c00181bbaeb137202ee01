@@ -1,0 +1,9 @@
+import javax.swing.JFrame;
+
+public class Base {
+	static JFrame main_window;
+	public static void init() {
+		main_window = new JFrame("Pythagorean Theorum");
+	}
+	
+}

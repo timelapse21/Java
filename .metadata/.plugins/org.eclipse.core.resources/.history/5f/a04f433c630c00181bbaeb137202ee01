@@ -1,0 +1,23 @@
+import java.awt.Image;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+
+public class Base {
+	static JFrame main_window;
+	static Listener listener;
+	
+	public static void init() {
+		main_window = new JFrame("Pythagorean Theorum");
+		main_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		List<Image> icons = new ArrayList<Image>();
+		icons.add(ImageIO.read(new File("image/64x64.png")));
+		main_window.setIconImages(new Image(new File("")));
+		main_window.setVisible(true);
+		listener = new Listener();
+	}
+	
+}
