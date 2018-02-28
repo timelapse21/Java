@@ -1,0 +1,50 @@
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.awt.GridLayout;
+
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Base {
+	private static final int W = 800;
+	private static final int H = 600;
+	private static final int X = 100;
+	private static final int Y = 100;
+	
+	private static JFrame frame = new JFrame();
+	
+	private static JCheckBox bold = new JCheckBox();
+	private static JCheckBox italic = new JCheckBox();
+	
+	private static JLabel display = new JLabel("I am Text");
+	
+	private static JComboBox<String> fonts_combo = new JComboBox<String>();
+	
+	private static JPanel panel = new JPanel(new GridLayout(2, 3));
+	
+	public static void init() {
+		frame.setTitle("Font Changer");
+		frame.setBounds(X, Y, W, H);
+		addComponents();
+		frame.setVisible(true);
+	}
+	public static void addComponents() {
+		bold.setText("Bold");
+		//bold.setFont(new Font(frame.getFont().getFamily(), 12, Font.BOLD));
+		italic.setText("Italic");
+		//italic.setFont(new Font(frame.getFont().getFamily(), 12, Font.ITALIC));
+		String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames(); // from https://alvinalexander.com/blog/post/jfc-swing/swing-faq-list-fonts-current-platform
+		for (String font: fonts) {
+			fonts_combo.addItem(font);
+		}
+		panel.add(new JLabel());
+		panel.add(display);
+		panel.add(new JLabel());
+		panel.add(bold);
+		panel.add(italic);
+		panel.add(fonts_combo);
+	}
+}

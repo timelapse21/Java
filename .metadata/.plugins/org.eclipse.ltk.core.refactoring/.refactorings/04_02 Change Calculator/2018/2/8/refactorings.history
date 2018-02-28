@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Listener.java&apos; to &apos;04_03 Font Changer/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;04_02 Change Calculator&apos;&#x0D;&#x0A;- Destination element: &apos;04_03 Font Changer/src/(default package)&apos;&#x0D;&#x0A;- Original element: &apos;Listener.java&apos;" description="Copy compilation unit" destination="=04_03 Font Changer/src&lt;" element1="/src&lt;{Listener.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1519342668134" units="1" version="1.0"/>
+</session>

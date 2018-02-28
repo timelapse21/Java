@@ -1,0 +1,62 @@
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+public class Base {
+	private static final int W = 400;
+	private static final int H = 400;
+	private static final int X = 100;
+	private static final int Y = 100;
+	
+	static JFrame frame;
+	
+	public static JRadioButton small, large;
+	public static Topping tomato, mustard, onion, cheese, mayonaise;
+	public static JCheckBox lettuce;
+	public static JPanel panel, item_panel, size_panel;
+	public static JLabel result;
+	
+	public static void init() {
+		frame = new JFrame();
+		frame.setBounds(X, Y, W, H);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addComponents();
+		frame.setVisible(true);
+	}
+
+	public static void addComponents() {
+		panel = new JPanel(new BorderLayout());
+		item_panel = new JPanel(new GridLayout(2, 3));
+		size_panel = new JPanel(new GridLayout(1, 2));
+		small = new JRadioButton("Small");
+		large = new JRadioButton("Large");
+		ButtonGroup group = new ButtonGroup();
+		group.add(small);
+		group.add(large);
+		size_panel.add(small);
+		size_panel.add(large);
+		lettuce = new JCheckBox("Lettuce");
+		tomato = new Topping("Tomato", 0.25);
+		mustard = new Topping("Mustard", 0);
+		onion = new Topping("Onion", 0.10);
+		cheese = new Topping("Cheese", 0.5);
+		mayonaise = new Topping("Mayonaise", 0);
+		item_panel.add(lettuce);
+		item_panel.add(tomato);
+		item_panel.add(mustard);
+		item_panel.add(onion);
+		item_panel.add(cheese);
+		item_panel.add(mayonaise);
+		result = new JLabel("2.50$");
+		panel.add(size_panel, BorderLayout.NORTH);
+		panel.add(item_panel, BorderLayout.CENTER);
+		panel.add(result);
+		frame.setContentPane(panel);
+	}
+}

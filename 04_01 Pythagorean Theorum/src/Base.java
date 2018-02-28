@@ -35,6 +35,7 @@ public class Base {
 	public static JLabel result_label = new JLabel("No Input Yet", JLabel.CENTER);	
 	static JLabel x_field_label = new JLabel("X Value", JLabel.CENTER);
 	static JLabel y_field_label = new JLabel("Y Value", JLabel.CENTER);
+	
 	public static void init() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

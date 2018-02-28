@@ -1,0 +1,15 @@
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+
+public class Base {
+	JFrame frame;
+	
+	JRadioButton small, large;
+	
+	JCheckBox lettuce, tomato, mustard, onion, cheese, mayonaise;
+	
+	public static void init() {
+		
+	}
+}

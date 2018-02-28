@@ -1,0 +1,24 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
+public class Listener implements ActionListener {
+	int a;
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == Base.calc_button) {
+			try {
+				System.out.println(Double.parseDouble("adasa"));
+			}
+			catch (Exception exception){
+				JOptionPane.showMessageDialog(Base.frame, "Please enter a valid input.");
+			}
+		}
+		else if (e.getSource() == Base.exit_button) {
+			Base.frame.dispose();
+			System.exit(0);
+		}
+	}
+
+}

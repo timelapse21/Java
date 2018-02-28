@@ -1,0 +1,102 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+
+public class Base {
+	private static final int W = 400;
+	private static final int H = 400;
+	private static final int X = 100;
+	private static final int Y = 100;
+	
+	static JFrame frame;
+	
+	public static JRadioButton small, large;
+	public static Topping lettuce, tomato, mustard, onion, cheese, mayonaise;
+	public static JPanel panel, item_panel, size_panel;
+	public static JLabel result;
+	
+	public static List<Topping> toppings;
+	
+	public static void init() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		frame = new JFrame("Sandwich Order");
+		frame.setBounds(X, Y, W, H);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addComponents();
+		frame.setVisible(true);
+	}
+
+	public static void addComponents() {
+		panel = new JPanel(new BorderLayout());
+		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		item_panel = new JPanel(new GridLayout(2, 3));
+		size_panel = new JPanel(new GridLayout(1, 2));
+		small = new JRadioButton("Small");
+		large = new JRadioButton("Large");
+		ButtonGroup group = new ButtonGroup();
+		group.add(small);
+		group.add(large);
+		size_panel.add(small);
+		size_panel.add(large);
+		lettuce = new Topping("Lettuce", 0.10);
+		tomato = new Topping("Tomato", 0.25);
+		mustard = new Topping("Mustard", 0);
+		onion = new Topping("Onion", 0.10);
+		cheese = new Topping("Cheese", 0.5);
+		mayonaise = new Topping("Mayonaise", 0);
+		item_panel.add(lettuce);
+		item_panel.add(tomato);
+		item_panel.add(mustard);
+		item_panel.add(onion);
+		item_panel.add(cheese);
+		item_panel.add(mayonaise);
+		result = new JLabel("2.50$");
+		result.setHorizontalAlignment(JLabel.CENTER);
+		result.setVerticalAlignment(JLabel.BOTTOM);
+		TitledBorder size_border = new TitledBorder(new LineBorder(Color.black), "Sandwich Size:");
+		TitledBorder item_border = new TitledBorder(new LineBorder(Color.black), "Sandwich Topping:");
+		size_panel.setBorder(size_border);
+		item_panel.setBorder(item_border);
+		panel.add(size_panel, BorderLayout.NORTH);
+		panel.add(item_panel, BorderLayout.CENTER);
+		panel.add(result, BorderLayout.SOUTH);
+		
+		toppings = new ArrayList<Topping>();
+		toppings.add(lettuce);
+		toppings.add(tomato);
+		toppings.add(mustard);
+		toppings.add(onion);
+		toppings.add(onion);
+		toppings.add(cheese);
+		toppings.add(mayonaise);
+		
+		Listener listener = new Listener();
+		lettuce.addItemListener(listener);
+		tomato.addItemListener(listener);
+		mustard.addItemListener(listener);
+		onion.addItemListener(listener);
+		cheese.addItemListener(listener);
+		mayonaise.addItemListener(listener);
+		small.addItemListener(listener);
+		large.addItemListener(listener);
+		
+		frame.setContentPane(panel);
+	}
+}

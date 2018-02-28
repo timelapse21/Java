@@ -1,0 +1,21 @@
+import javax.swing.JFrame;
+
+public class Base {
+	private static final int W = 800;
+	private static final int H = 600;
+	private static final int X = 100;
+	private static final int Y = 100;
+	private static JFrame frame;
+	
+	
+	
+	public static void init() {
+		frame = new JFrame();
+		frame.setTitle("Font Changer");
+		
+		frame.setVisible(true);
+	}
+	public static void addComponenents() {
+		
+	}
+}
