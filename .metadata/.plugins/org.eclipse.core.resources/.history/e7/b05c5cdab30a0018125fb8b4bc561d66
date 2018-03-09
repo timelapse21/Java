@@ -1,5 +1,0 @@
-import java.swing.JApplet;
-
-public class Main extends JApplet {
-
-}

@@ -1,9 +1,0 @@
-import javax.swing.JFrame;
-
-public class Base {
-	private JFrame frame;
-	public static void init() {
-		frame = new JFrame();
-		frame.set
-	}
-}
